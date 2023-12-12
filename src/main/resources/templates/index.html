@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Send Message</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+<body>
+
+<h2>Send Message</h2>
+
+<form th:action="@{/}" th:object="${message}" method="post">
+    <label for="destination">Destination:</label>
+    <input type="text" id="destination" name="destination" th:field="*{destination}" required>
+    <br>
+
+    <label for="messageText">Message Text:</label>
+    <input type="text" id="messageText" name="messageText" th:field="*{messageText}" required>
+    <br>
+
+    <button type="submit">Send Message</button>
+</form>
+
+<!-- Display success message if redirected with 'success' parameter -->
+<div th:if="${param.success}">
+    <p>Message sent successfully!</p>
+</div>
+
+</body>
+</html>

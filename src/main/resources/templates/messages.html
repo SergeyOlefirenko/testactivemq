@@ -1,0 +1,36 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Messages</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Received Messages</h1>-->
+<!--<div th:utext="${content}"></div>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Messages</title>
+</head>
+<body>
+<h1>Received Messages</h1>
+
+<form action="/messages" method="get">
+    <label for="destination">Choose a destination:</label>
+    <select name="destination" id="destination">
+        <option th:each="dest : ${destinations}" th:value="${dest}" th:text="${dest}"></option>
+    </select>
+    <button type="submit">Show Messages</button>
+</form>
+
+<div>
+    <div th:utext="${content}"></div>
+    <!-- Display messages for the selected destination -->
+    <!-- Add logic here to fetch and display messages -->
+</div>
+</body>
+</html>
